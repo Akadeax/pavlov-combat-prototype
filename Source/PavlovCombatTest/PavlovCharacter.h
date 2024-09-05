@@ -19,8 +19,9 @@ protected:
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input) float TurnRateGamepad;
 	explicit APavlovCharacter(const FObjectInitializer& ObjectInitializer);
-
+	FORCEINLINE UPavlovCharacterMovementComponent* GetPavlovCharacterMovement() const { return PavlovCharacterMovementComponent; }
 	// Input
+	FCollisionQueryParams GetIgnoreCharacterParams() const;
 private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
